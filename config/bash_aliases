@@ -1,0 +1,11 @@
+#
+alias ls='ls -FC'
+alias ll='ls -la'
+alias lg='ls -lg'
+alias dirz="ls -la | grep '^d'"
+#
+alias ping8='ping -c 5 8.8.8.8'
+alias pscript="ps -ef | grep script"
+#
+alias mkvirt='virtualenv -p /usr/local/bin/python3 venv'
+#
