@@ -1,4 +1,11 @@
 #
+PS1="\u@\h:\!>"
+#
+EDITOR=vi; export EDITOR
+#
+HISTSIZE=100; export HISTSIZE
+HISTFILE=/tmp/gsc.hist; export HISTFILE
+#
 alias ls='ls -FC'
 alias ll='ls -la'
 alias lg='ls -lg'
