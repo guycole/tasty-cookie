@@ -12,15 +12,17 @@ personal k8s cluster
  
 ![front](https://github.com/guycole/tasty-cookie/blob/main/grafix/front_25nov23.png)
 ![side](https://github.com/guycole/tasty-cookie/blob/main/grafix/side_25nov23.png)
+![network](https://github.com/guycole/tasty-cookie/blob/main/grafix/network_25nov23.png)
 
-| Host     | Description    | Address     | KVM | Power |
-| -------- | ---------------|-------------|-----|-------|
-| archer   | odroid c4      | 10.168.0.1  |  7  | 1A    |
-| cyril    | netgear switch | 10.168.0.3  |     | 8B    |
-| mitsuiko | power control  | 10.168.0.5  |     |       |
-| pam      | supermicro     | 10.168.0.11 |  6  | 4A    |
-| cheryl   | dell 7040      | 10.168.0.13 |  2  | 1A    |
-| lana     | dell 7040      | 10.168.0.15 |  3  | 1A    |
-| malory   | dell 7040      | 10.168.0.17 |  4  | 2A    |
+| Host    | Description                     | Address     | KVM | Power |
+| ------- | --------------------------------|-------------|-----|-------|
+| archer  | odroid c4 (network gateway)     | 10.168.0.1  |  7  | 1A    |
+| cyril   | netgear GS724 (switch)          | 10.168.0.3  |     | 8B    |
+| mitsuko | power control                   | 10.168.0.5  |     |       |
+| ray     | netgear ReadyNAS (storage)      | 10.168.0.7  |     |       |
+| pam     | supermicro (k8s worker/storage) | 10.168.0.11 |  6  | 4A    |
+| cheryl  | dell 7040  (k8s worker)         | 10.168.0.13 |  2  | 1A    |
+| lana    | dell 7040  (k8s worker)         | 10.168.0.15 |  3  | 1A    |
+| malory  | dell 7040  (k8s master)         | 10.168.0.17 |  4  | 2A    |
 
 All servers on Ubuntu 22.04 LTS
