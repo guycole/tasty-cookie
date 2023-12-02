@@ -12,7 +12,15 @@ alias lg='ls -lg'
 alias dirz="ls -la | grep '^d'"
 #
 alias ping8='ping -c 5 8.8.8.8'
-alias pscript="ps -ef | grep script"
+alias pscript='ps -ef | grep script'
 #
 alias mkvirt='virtualenv -p /usr/local/bin/python3 venv'
+#
+alias cdgh='cd ~/github'
+#
+alias kca='kubectl apply -f '
+alias kcg='kubectl get '
+alias kcgctx='kubectl config get-contexts'
+alias kcnx='kubectl run nx --rm -it --image=nginx:latest --restart=Never -- sh'
+alias kkk='kubectl '
 #
