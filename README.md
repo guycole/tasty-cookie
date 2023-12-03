@@ -16,7 +16,7 @@ personal k8s cluster
 
 | Host    | Description                     | Address     | KVM | Power |
 | ------- | --------------------------------|-------------|-----|-------|
-| archer  | odroid c4 (network gateway)     | 10.168.0.1  |  7  | 1A    |
+| archer  | odroid c4 (network gateway)     | 10.168.0.1  |  7  | 6B    |
 | cyril   | netgear GS724 (switch)          | 10.168.0.3  |     | 8B    |
 | mitsuko | power control                   | 10.168.0.5  |     |       |
 | ray     | netgear ReadyNAS (storage)      | 10.168.0.7  |     |       |
