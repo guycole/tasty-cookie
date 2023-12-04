@@ -17,12 +17,13 @@ personal k8s cluster
 | Host    | Description                     | Address     | KVM | Power |
 | ------- | --------------------------------|-------------|-----|-------|
 | archer  | odroid c4 (network gateway)     | 10.168.0.1  |  7  | 6B    |
-| cyril   | netgear GS724 (switch)          | 10.168.0.3  |     | 8B    |
+| cyril   | netgear GS724 (switch)          | 10.168.0.3  |     | 5B    |
 | mitsuko | power control                   | 10.168.0.5  |     |       |
 | ray     | netgear ReadyNAS (storage)      | 10.168.0.7  |     |       |
 | pam     | supermicro (k8s worker/storage) | 10.168.0.11 |  6  | 4A    |
 | cheryl  | dell 7040  (k8s worker)         | 10.168.0.13 |  2  | 1A    |
 | lana    | dell 7040  (k8s worker)         | 10.168.0.15 |  3  | 1A    |
 | malory  | dell 7040  (k8s master)         | 10.168.0.17 |  4  | 2A    |
+|         | trendnet kvm                    |             |     | 8B    |
 
 All servers on Ubuntu 22.04 LTS

@@ -1,0 +1,47 @@
+apt-get install -y apt-transport-https ca-certificates curl
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://dl.k8s.io/apt/doc/apt-key.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+apt-get update
+
+apt-cache madison kubeadm | tac
+
+apt-get install -y kubelet=1.28.2-00 kubectl=1.28.2-00 kubeadm=1.28.2-00
+
+apt-mark hold kubelet kubeadm kubectl
+
+KUBELET_EXTRA_ARGS=--node-ip='10.168.0.17'
+
+IPADDR='10.168.0.17'
+NODENAME=$(hostname -s)
+POD_CIDR='10.168.0.0/16'
+
+kubeadm init --apiserver-advertise-address=$IPADDR  --apiserver-cert-extra-sans=$IPADDR  --pod-network-cidr=$POD_CIDR --node-name $NODENAME 
+
+Found multiple CRI endpoints on the host. Please define which one do you wish to use by setting the 'criSocket' field in the kubeadm configuration file: unix:///var/run/containerd/containerd.sock, unix:///var/run/crio/crio.sock
+
+kubeadm init --apiserver-advertise-address=$IPADDR  --apiserver-cert-extra-sans=$IPADDR  --pod-network-cidr=$POD_CIDR --node-name $NODENAME --cri-socket unix:///var/run/crio/crio.sock
+
+Your Kubernetes control-plane has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+kubeadm join 10.168.0.17:6443 --token ltdf3m.epcoyivbeim4z880 --discovery-token-ca-cert-hash sha256:520931b9377ea1e831b98b352e1eecc917aa0342927fb8b432205cad976126ae --cri-socket unix:///var/run/crio/crio.sock
+
+kcg pods -n kube-system
+kcg nodes
+kubectl get --raw='/readyz?verbose'
+kubectl cluster-info 
+
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
