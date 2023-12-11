@@ -14,16 +14,28 @@ personal k8s cluster
 ![side](https://github.com/guycole/tasty-cookie/blob/main/grafix/side_25nov23.png)
 ![network](https://github.com/guycole/tasty-cookie/blob/main/grafix/network_25nov23.png)
 
-| Host    | Description                     | Address     | KVM | Power |
-| ------- | --------------------------------|-------------|-----|-------|
-| archer  | odroid c4 (network gateway)     | 10.168.0.1  |  7  | 6B    |
-| cyril   | netgear GS724 (switch)          | 10.168.0.3  |     | 5B    |
-| mitsuko | power control                   | 10.168.0.5  |     |       |
-| ray     | netgear ReadyNAS (storage)      | 10.168.0.7  |     |       |
-| pam     | supermicro (k8s worker/storage) | 10.168.0.11 |  6  | 4A    |
-| cheryl  | dell 7040  (k8s worker)         | 10.168.0.13 |  2  | 1A    |
-| lana    | dell 7040  (k8s worker)         | 10.168.0.15 |  3  | 1A    |
-| malory  | dell 7040  (k8s master)         | 10.168.0.17 |  4  | 2A    |
-|         | trendnet kvm                    |             |     | 8B    |
+| Host    | Description                 | Address     | KVM | Power      |
+| ------- | ----------------------------|-------------|-----|------------|
+| archer  | odroid c4 (network gateway) | 10.168.0.1  |  7  | unswitched |
+| cyril   | netgear GS724 (switch)      | 10.168.0.3  |     | 5B         |
+| mitsuko | power control               | 10.168.0.5  |     |            |
+| ray     | netgear ReadyNAS (NFS)      | 10.168.0.7  |     | unswitched |
+| pam     | supermicro (k8s worker)     | 10.168.0.11 |  6  | 4A         |
+| cheryl  | dell 7040  (k8s worker)     | 10.168.0.13 |  2  | 1A         |
+| lana    | dell 7040  (k8s worker)     | 10.168.0.15 |  3  | 1A         |
+| malory  | dell 7040  (k8s master)     | 10.168.0.17 |  4  | 2A         |
+|         | trendnet kvm                |             |     | 8B         |
 
 All servers on Ubuntu 22.04 LTS
+
+| Host    | Description             | export | mount          | pv         | storage class |
+| ------- | ------------------------|--------|----------------|------------|---------------|
+| ray     | netgear ReadyNAS (NFS)  | k8s    |                |            |               |
+| pam     | supermicro (k8s worker) |        | /var/local/k8s | pam-pv1    | local-storage |
+| pam     | supermicro (k8s worker) |        | /var/nfs/k8s   |            | nfs-storage   |
+| cheryl  | dell 7040  (k8s worker) |        | /var/local/k8s | cheryl-pv1 | local-storage |
+| cheryl  | dell 7040  (k8s worker) |        | /var/nfs/k8s   |            | nfs-storage   |
+| lana    | dell 7040  (k8s worker) |        | /var/local/k8s | lana-pv1   | local-storage |
+| lana    | dell 7040  (k8s worker) |        | /var/nfs/k8s   |            | nfs-storage   |
+| malory  | dell 7040  (k8s master) |        |                |            |
+
