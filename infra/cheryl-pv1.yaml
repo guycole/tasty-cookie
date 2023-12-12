@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: test-local-pv
+  name: cheryl-pv1
 spec:
   capacity:
-    storage: 10Gi
+    storage: 5Gi
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /data/volumes/pv1
+    path: /var/k8svol/pv1
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -18,4 +18,4 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - k8s-worker-01
+          - cheryl

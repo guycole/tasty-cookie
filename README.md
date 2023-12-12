@@ -28,14 +28,14 @@ personal k8s cluster
 
 All servers on Ubuntu 22.04 LTS
 
-| Host    | Description             | export | mount          | pv         | storage class |
-| ------- | ------------------------|--------|----------------|------------|---------------|
-| ray     | netgear ReadyNAS (NFS)  | k8s    |                |            |               |
-| pam     | supermicro (k8s worker) |        | /var/local/k8s | pam-pv1    | local-storage |
-| pam     | supermicro (k8s worker) |        | /var/nfs/k8s   |            | nfs-storage   |
-| cheryl  | dell 7040  (k8s worker) |        | /var/local/k8s | cheryl-pv1 | local-storage |
-| cheryl  | dell 7040  (k8s worker) |        | /var/nfs/k8s   |            | nfs-storage   |
-| lana    | dell 7040  (k8s worker) |        | /var/local/k8s | lana-pv1   | local-storage |
-| lana    | dell 7040  (k8s worker) |        | /var/nfs/k8s   |            | nfs-storage   |
-| malory  | dell 7040  (k8s master) |        |                |            |
+| Host    | Description             | export | mount        | pv         | storage class |
+| ------- | ------------------------|--------|--------------|------------|---------------|
+| ray     | netgear ReadyNAS (NFS)  | k8s    |              |            |               |
+| pam     | supermicro (k8s worker) |        | /var/k8svol  | pam-pv1    | local-storage |
+| pam     | supermicro (k8s worker) |        | /var/nfs/k8s |            | nfs-storage   |
+| cheryl  | dell 7040  (k8s worker) |        | /var/k8svol  | cheryl-pv1 | local-storage |
+| cheryl  | dell 7040  (k8s worker) |        | /var/nfs/k8s |            | nfs-storage   |
+| lana    | dell 7040  (k8s worker) |        | /var/k8svol  | lana-pv1   | local-storage |
+| lana    | dell 7040  (k8s worker) |        | /var/nfs/k8s |            | nfs-storage   |
+| malory  | dell 7040  (k8s master) |        |              |            |
 

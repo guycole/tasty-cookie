@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: lana-local-pv1
+  name: lana-pv1
 spec:
   capacity:
-    storage: 2Gi
+    storage: 5Gi
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /data/volumes/pv1
+    path: /var/k8svol/pv1
   nodeAffinity:
     required:
       nodeSelectorTerms:

@@ -1,0 +1,24 @@
+https://lapee79.github.io/en/article/use-a-local-disk-by-local-volume-static-provisioner-in-kubernetes/
+
+local disk:
+host path
+local volume
+
+create storage class
+
+https://discuss.kubernetes.io/t/use-nfs-for-persistent-volumes-on-microk8s/19035
+
+https://github.com/kubernetes-csi/csi-driver-nfs
+
+https://github.com/kubernetes-csi/csi-driver-nfs/tree/master/charts
+
+helm repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
+helm install csi-driver-nfs csi-driver-nfs/csi-driver-nfs --namespace kube-system --version v4.5.0
+
+csi-nfs-controller-879d6b797-2lbln   0/4     ContainerCreating   0             12s
+csi-nfs-node-7s4fk                   0/3     ContainerCreating   0             12s
+csi-nfs-node-ft2rb                   0/3     ContainerCreating   0             12s
+csi-nfs-node-rn5w8                   0/3     ContainerCreating   0             12s
+
+kcg csidrivers
+

@@ -1,0 +1,64 @@
+# helm upgrade --reuse-values -f prometheus.yaml prometheus prometheus-community/kube-prometheus-stack -n monitoring
+kubeControllerManager:
+  enabled: false
+
+kubeScheduler:
+  enabled: false
+
+kubeProxy:
+  enabled: false
+
+prometheus:
+  enabled: true
+  prometheusSpec:
+    replicas: 2
+    storageSpec: 
+     volumeClaimTemplate:
+       spec:
+         storageClassName: nfs-storage
+         accessModes: ["ReadWriteOnce"]
+         resources:
+           requests:
+             storage: 50Gi
+
+podMonitorSelectorNilUsesHelmValues: true
+
+alertmanager:
+  alertmanagerSpec:
+    storage: 
+      volumeClaimTemplate:
+        spec:
+          storageClassName: nfs-storage
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
+  config:
+    global:
+      pagerduty_url: https://events.pagerduty.com/generic/2010-04-15/create_event.json
+      resolve_timeout: 5m
+    inhibit_rules:
+    - equal:
+      - namespace
+      source_matchers:
+      - alertname = InfoInhibitor
+      target_matchers:
+      - severity = info
+    receivers:
+    - name: 'null'
+    - name: 'pager-duty'
+      pagerduty_configs:
+      - service_key: 'xx:'
+    route:
+      group_by: [namespace, alertname]
+      group_interval: 5m
+      group_wait: 30s
+      repeat_interval: 4h
+      receiver: 'null'
+      routes: 
+      - receiver: 'pager-duty'
+        matchers:
+        - severity =~ "critical|warning"
+    templates:
+    - /etc/alertmanager/config/*.tmpl
+
