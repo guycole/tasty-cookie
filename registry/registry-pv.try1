@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"PersistentVolume","metadata":{"annotations":{},"name":"registry-pv"},"spec":{"accessModes":["ReadWriteOnce"],"capacity":{"storage":"10Gi"},"local":{"path":"/var/k8svol/registry-pv"},"nodeAffinity":{"required":{"nodeSelectorTerms":[{"matchExpressions":[{"key":"kubernetes.io/hostname","operator":"In","values":["lana"]}]}]}},"persistentVolumeReclaimPolicy":"Retain","storageClassName":"local-storage"}}
+  creationTimestamp: "2024-01-22T07:58:17Z"
+  finalizers:
+  - kubernetes.io/pv-protection
+  name: registry-pv
+  resourceVersion: "1337552"
+  uid: 70b4a1fc-67ac-4113-8158-6001d7657252
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  local:
+    path: /var/k8svol/registry-pv
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - lana
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  volumeMode: Filesystem
+status:
+  phase: Available

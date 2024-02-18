@@ -1,0 +1,10 @@
+---
+replicaCount: 1
+persistence:
+  enabled: true
+  size: 10Gi
+  deleteEnabled: true
+  storageClass: nfs-storage
+  existingClaim: registry-pvc
+secrets:
+  htpasswd: admin:$2y$05$3v/ifdePksoYfAZxrmyNRuxvm.g0yWvN3C2Gs160X5BIrv6WpHeUO

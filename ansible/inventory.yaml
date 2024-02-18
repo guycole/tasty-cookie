@@ -1,0 +1,13 @@
+archernet:
+  hosts:
+    archer:
+      ansible_host: archer
+    cheryl:
+      ansible_host: cheryl
+    lana:
+      ansible_host: lana
+    malory:
+      ansible_host: malory
+  vars:
+    ansible_user: gsc
+    ansible_password: bogus
