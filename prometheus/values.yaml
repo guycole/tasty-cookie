@@ -11,7 +11,7 @@ kubeProxy:
 prometheus:
   enabled: true
   prometheusSpec:
-    replicas: 2
+    replicas: 1
     storageSpec: 
      volumeClaimTemplate:
        spec:
@@ -61,4 +61,3 @@ alertmanager:
         - severity =~ "critical|warning"
     templates:
     - /etc/alertmanager/config/*.tmpl
-

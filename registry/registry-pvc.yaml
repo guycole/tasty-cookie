@@ -1,13 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: registry-pvc2
-  namespace: docker-registry
+  name: registry-pvc
+  namespace: doxreg
 spec:
   accessModes:
-    - ReadWriteOnce
-  volumeMode: Filesystem
+  - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
-  storageClassName: local-storage
+      storage: 30Gi
+  storageClassName: nfs-storage

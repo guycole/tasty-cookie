@@ -24,18 +24,20 @@ personal k8s cluster
 | cheryl  | dell 7040  (k8s worker)     | 10.168.0.13 |  2  | 1A         |
 | lana    | dell 7040  (k8s worker)     | 10.168.0.15 |  3  | 1A         |
 | malory  | dell 7040  (k8s master)     | 10.168.0.17 |  4  | 2A         |
+| krieger | ASUS P5Q (NFS)              | 10.168.0.19 |     | unswitched |
 |         | trendnet kvm                |             |     | 8B         |
 
 All servers on Ubuntu 22.04 LTS
 
-| Host    | Description             | export | mount        | pv         | storage class |
-| ------- | ------------------------|--------|--------------|------------|---------------|
-| ray     | netgear ReadyNAS (NFS)  | k8s    |              |            |               |
-| pam     | supermicro (k8s worker) |        | /var/k8svol  | pam-pv1    | local-storage |
-| pam     | supermicro (k8s worker) |        | /var/nfs/k8s |            | nfs-storage   |
-| cheryl  | dell 7040  (k8s worker) |        | /var/k8svol  | cheryl-pv1 | local-storage |
-| cheryl  | dell 7040  (k8s worker) |        | /var/nfs/k8s |            | nfs-storage   |
-| lana    | dell 7040  (k8s worker) |        | /var/k8svol  | lana-pv1   | local-storage |
-| lana    | dell 7040  (k8s worker) |        | /var/nfs/k8s |            | nfs-storage   |
-| malory  | dell 7040  (k8s master) |        |              |            |
+| Host    | Description             | export       | mount        | pv         | storage class |
+| ------- | ------------------------|--------------|--------------|------------|---------------|
+| ray     | netgear ReadyNAS (NFS)  | k8s          |              |            |               |
+| pam     | supermicro (k8s worker) |              | /var/k8svol  | pam-pv1    | local-storage |
+| pam     | supermicro (k8s worker) |              | /var/nfs/k8s |            | nfs-storage   |
+| cheryl  | dell 7040  (k8s worker) |              | /var/k8svol  | cheryl-pv1 | local-storage |
+| cheryl  | dell 7040  (k8s worker) |              | /var/nfs/k8s |            | nfs-storage   |
+| lana    | dell 7040  (k8s worker) |              | /var/k8svol  | lana-pv1   | local-storage |
+| lana    | dell 7040  (k8s worker) |              | /var/nfs/k8s |            | nfs-storage   |
+| malory  | dell 7040  (k8s master) |              |              |            |               |
+| krieger | ASUS P5Q (NFS)          | /var/nfs/k8s |              |            |               |
 

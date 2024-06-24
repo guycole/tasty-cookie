@@ -1,0 +1,5 @@
+https://artifacthub.io/packages/helm/gmelillo/docker-registry
+https://www.paulsblog.dev/how-to-install-a-private-docker-container-registry-in-kubernetes/
+
+kubectl create ns doxreg
+helm install doxreg gmelillo/docker-registry -n doxreg -f values.yaml
