@@ -1,0 +1,14 @@
+kubectl explain pod --recursive
+
+kubectl create deployment --help
+kubectl create deployment httpd-frontend --image=httpd:2.4-alpine --replicas=3
+
+kubectl exec -it kube-apiserver-controlplane -n kube-system -- kube-apiserver -h | grep 'enable-admission-plugins'
+
+# redis pod must already exist
+kubectl expose pod redis --port=6379 --name redis-svc --dry-run=client -o yaml > xx
+
+kcg pod --show-labels
+kubectl scale --help
+kubectl scale rs/new-replica-set --replicas=5
+kubectl taint nodes node01 spray=mortein:NoSchedule
